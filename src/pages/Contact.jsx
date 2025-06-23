@@ -1,11 +1,10 @@
-import React from 'react';
-import HeroSection from '../components/ui/HeroSection';
-import ContactInfo from '../components/ui/ContactInfo';
-import MembershipPlans from '../components/ui/MembershipPlans';
-import FAQ from '../components/ui/FAQ';
-import { Button } from '../components/common/Button';
-import { Input } from '../components/common/Input';
-import { Textarea } from '../components/common/Textarea';
+import React from "react";
+import HeroSection from "../components/ui/HeroSection";
+import MembershipPlans from "../components/ui/MembershipPlans";
+import FAQ from "../components/ui/FAQ";
+import Input from "../components/common/Input"; // Default import
+import Textarea from "../components/common/Textarea"; // Default import
+import Button from "../components/common/Button"; // Default import
 
 const Contact = () => {
   return (

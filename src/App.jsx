@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from './components/layout/Layout';
-import Home from './pages/Home';
-import About from './pages/About';
-import Programs from './pages/Programs';
-import Trainers from './pages/Trainers';
-import Contact from './pages/Contact';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Home from './components/Home/Home';
+import About from './components/About/About';
+import Programs from './components/Programs/Programs';
+import Trainers from './components/Trainers/Trainers';
+import Contact from './components/Contact/Contact';
 
 const App = () => {
+  const [activeTab, setActiveTab] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -21,17 +22,23 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
-      <Layout isScrolled={isScrolled} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/programs" element={<Programs />} />
-          <Route path="/trainers" element={<Trainers />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </Layout>
-    </Router>
+    <div className="min-h-screen bg-background text-white">
+      <Header
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        isScrolled={isScrolled}
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+      />
+      <main className="pt-20">
+        {activeTab === 'home' && <Home />}
+        {activeTab === 'about' && <About />}
+        {activeTab === 'programs' && <Programs />}
+        {activeTab === 'trainers' && <Trainers />}
+        {activeTab === 'contact' && <Contact />}
+      </main>
+      <Footer />
+    </div>
   );
 };
 
