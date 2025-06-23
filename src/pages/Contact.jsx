@@ -1,7 +1,7 @@
 import React from "react";
-import HeroSection from "../components/ui/HeroSection";
-import MembershipPlans from "../components/ui/MembershipPlans";
-import FAQ from "../components/ui/FAQ";
+import HeroSection from "../components/Home/HeroSection";
+import MembershipPlans from "../components/About/MembershipPlans";
+import FAQ from "../components/About/FAQ";
 import Input from "../components/common/Input"; // Default import
 import Textarea from "../components/common/Textarea"; // Default import
 import Button from "../components/common/Button"; // Default import

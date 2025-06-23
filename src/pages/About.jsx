@@ -1,7 +1,7 @@
 import React from 'react';
-import HeroSection from '../components/ui/HeroSection';
-import CoreValues from '../components/ui/CoreValues';
-import Timeline from '../components/ui/Timeline';
+import HeroSection from '../components/Home/HeroSection';
+import CoreValues from '../components/About/CoreValues';
+import Timeline from '../components/About/Timeline';
 
 const About = () => {
   return (

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import HeroSection from '../components/ui/HeroSection';
+import HeroSection from '../components/Home/HeroSection';
 import { Button } from '../components/common/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/common/Card';
 import * as echarts from 'echarts';

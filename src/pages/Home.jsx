@@ -1,8 +1,8 @@
 import React from 'react';
-import HeroSection from '../components/ui/HeroSection';
-import ProgramSlider from '../components/ui/ProgramSlider';
-import TrainerCard from '../components/ui/TrainerCard';
-import TestimonialSlider from '../components/ui/TestimonialSlider';
+import HeroSection from '../components/Home/HeroSection';
+import ProgramSlider from '../components/Home/ProgramsSection';
+import TrainerCard from '../components/Home/TrainersSection';
+import TestimonialSlider from '../components/Home/TestimonialsSection';
 import { programs, trainers, testimonials } from '../utils/constants';
 import { Button } from '../components/common/Button';
 
