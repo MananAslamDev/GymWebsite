@@ -1,49 +1,76 @@
 import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
-import { Card } from '../common/Card';
-import 'swiper/css';
-import 'swiper/css/pagination';
+import Swiper from '../common/Swiper';
+import Card from '../common/Card';
 
-const TestimonialSlider = ({ testimonials }) => {
+const TestimonialsSection = () => {
+  const testimonials = [
+    {
+      id: 1,
+      name: 'Sarah Wilson',
+      quote: 'EliteX transformed my life! The trainers are incredible and the programs are top-notch.',
+      image: 'https://readdy.ai/api/search-image?query=Happy%20female%20client%2C%20smiling%2C%20modern%20gym%2C%20high-quality%20photography&width=100&height=100&seq=testimonial1',
+    },
+    {
+      id: 2,
+      name: 'James Lee',
+      quote: 'The best gym I’ve ever joined. The community and support here are unmatched.',
+      image: 'https://readdy.ai/api/search-image?query=Happy%20male%20client%2C%20smiling%2C%20modern%20gym%2C%20high-quality%20photography&width=100&height=100&seq=testimonial2',
+    },
+    {
+      id: 3,
+      name: 'Lisa Davis',
+      quote: 'I’ve never felt stronger or more confident. Thank you, EliteX!',
+      image: 'https://readdy.ai/api/search-image?query=Happy%20female%20client%2C%20smiling%2C%20modern%20gym%2C%20high-quality%20photography&width=100&height=100&seq=testimonial3',
+    },
+  ];
+
   return (
-    <Swiper
-      modules={[Pagination, Autoplay]}
-      spaceBetween={30}
-      slidesPerView={1}
-      pagination={{ clickable: true }}
-      autoplay={{ delay: 5000 }}
-      className="testimonial-slider"
-    >
-      {testimonials.map((testimonial, index) => (
-        <SwiperSlide key={index}>
-          <Card className="bg-[#222] border-none overflow-hidden">
-            <div className="flex flex-col md:flex-row">
-              <div className="md:w-1/2">
-                <img
-                  src={testimonial.image}
-                  alt={`${testimonial.name}'s transformation`}
-                  className="w-full h-[300px] md:h-full object-cover object-top"
-                />
-              </div>
-              <div className="md:w-1/2 p-8 flex flex-col justify-center">
-                <div className="mb-4">
-                  {Array(testimonial.rating).fill(0).map((_, i) => (
-                    <i key={i} className="fas fa-star text-[#FF3A3A] mr-1"></i>
-                  ))}
-                </div>
-                <p className="text-xl text-white italic mb-6">"{testimonial.quote}"</p>
-                <div>
-                  <h4 className="text-xl font-bold text-white">{testimonial.name}</h4>
-                  <p className="text-[#00F0FF]">{testimonial.achievement}</p>
-                </div>
-              </div>
+    <section className="py-20 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            What Our Members Say
+          </h2>
+          <p className="text-xl text-white/70 max-w-3xl mx-auto">
+            Hear from our community about their transformative experiences at EliteX Fitness.
+          </p>
+        </div>
+        <Swiper
+          className="testimonial-slider"
+          options={{
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: { clickable: true },
+            breakpoints: {
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            },
+          }}
+        >
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.id} className="swiper-slide">
+              <Card className="p-6">
+                <Card.Content>
+                  <div className="flex items-center mb-4">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-16 h-16 rounded-full mr-4"
+                    />
+                    <div>
+                      <Card.Title>{testimonial.name}</Card.Title>
+                    </div>
+                  </div>
+                  <Card.Description>{`"${testimonial.quote}"`}</Card.Description>
+                </Card.Content>
+              </Card>
             </div>
-          </Card>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+          ))}
+        </Swiper>
+      </div>
+    </section>
   );
 };
 
-export default TestimonialSlider;
+export default TestimonialsSection;

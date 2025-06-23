@@ -1,53 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import './tailwind.css';
 
-body {
-  font-family: 'Montserrat', sans-serif;
-  min-height: 1024px;
-}
+   .animate-fade-in {
+     animation: fadeIn 1.5s ease-out;
+   }
 
-.animate-fade-in {
-  animation: fadeIn 1.5s ease-out;
-}
+   .animate-pulse {
+     animation: pulse 2s infinite;
+   }
 
-.animate-pulse {
-  animation: pulse 2s infinite;
-}
+   @keyframes fadeIn {
+     from { opacity: 0; transform: translateY(20px); }
+     to { opacity: 1; transform: translateY(0); }
+   }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+   @keyframes pulse {
+     0%, 100% { transform: scale(1); }
+     50% { transform: scale(1.05); }
+   }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
+   .perspective-1000 {
+     perspective: 1000px;
+   }
 
-.perspective-1000 {
-  perspective: 1000px;
-}
+   .transform-style-3d {
+     transform-style: preserve-3d;
+   }
 
-.transform-style-3d {
-  transform-style: preserve-3d;
-}
+   .backface-hidden {
+     backface-visibility: hidden;
+   }
 
-.backface-hidden {
-  backface-visibility: hidden;
-}
+   .rotate-y-180 {
+     transform: rotateY(180deg);
+   }
 
-.rotate-y-180 {
-  transform: rotateY(180deg);
-}
+   .program-slider .swiper-button-next,
+   .program-slider .swiper-button-prev {
+     color: #FF3A3A;
+   }
 
-.program-slider .swiper-button-next,
-.program-slider .swiper-button-prev {
-  color: #FF3A3A;
-}
+   .program-slider .swiper-pagination-bullet-active {
+     background: #FF3A3A;
+   }
 
-.program-slider .swiper-pagination-bullet-active {
-  background: #FF3A3A;
-}
-
-.testimonial-slider .swiper-pagination-bullet-active {
-  background: #FF3A3A;
-}
+   .testimonial-slider .swiper-pagination-bullet-active {
+     background: #FF3A3A;
+   }

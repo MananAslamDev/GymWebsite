@@ -1,44 +1,36 @@
 import React from 'react';
-import { Card, CardContent } from '../common/Card';
+import Card from '../common/Card';
 
-const contactInfo = [
-  {
-    icon: 'fa-map-marker-alt',
-    title: 'Visit Us',
-    details: ['123 Fitness Avenue', 'Seattle, WA 98101'],
-  },
-  {
-    icon: 'fa-phone-alt',
-    title: 'Call Us',
-    details: ['(206) 555-1234', 'Mon-Sun: 6am-10pm'],
-  },
-  {
-    icon: 'fa-envelope',
-    title: 'Email Us',
-    details: ['info@elitexfitness.com', 'support@elitexfitness.com'],
-  },
-];
-
-const ContactInfo = () => {
+const OurStorySection = () => {
   return (
-    <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-      {contactInfo.map((item, index) => (
-        <Card key={index} className="bg-[#222] border-none">
-          <CardContent className="pt-6 text-center">
-            <div className="mx-auto w-12 h-12 rounded-full bg-[#FF3A3A] flex items-center justify-center mb-4">
-              <i className={`fas ${item.icon} text-xl text-white`}></i>
-            </div>
-            <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-            <div className="space-y-1 text-white/70">
-              {item.details.map((detail, i) => (
-                <p key={i}>{detail}</p>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
+    <section className="py-20 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Story</h2>
+          <p className="text-xl text-white/70 max-w-3xl mx-auto">
+            Founded in 2015, EliteX Fitness was born from a passion for transforming lives through fitness.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <img
+              src="https://readdy.ai/api/search-image?query=Modern%20gym%20founders%2C%20group%20photo%2C%20dark%20atmosphere%2C%20professional%20photography&width=600&height=400&seq=story1"
+              alt="Founders"
+              className="w-full h-96 object-cover rounded-lg"
+            />
+          </div>
+          <Card className="p-6">
+            <Card.Content>
+              <Card.Title>Our Mission</Card.Title>
+              <Card.Description>
+                At EliteX Fitness, we believe in empowering individuals to achieve their highest potential through personalized training, state-of-the-art facilities, and a supportive community. Our journey began with a vision to redefine fitness by combining cutting-edge technology with expert coaching to deliver unparalleled results.
+              </Card.Description>
+            </Card.Content>
+          </Card>
+        </div>
+      </div>
+    </section>
   );
 };
 
-export default ContactInfo;
+export default OurStorySection;

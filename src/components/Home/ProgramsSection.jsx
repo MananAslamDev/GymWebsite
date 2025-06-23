@@ -1,52 +1,81 @@
 import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../common/Card';
-import { Button } from '../common/Button';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import Swiper from '../common/Swiper';
+import Card from '../common/Card';
+import Button from '../common/Button';
 
-const ProgramSlider = ({ programs }) => {
+const ProgramsSection = () => {
+  const programs = [
+    {
+      id: 1,
+      name: 'Power Lifting',
+      description: 'Build raw strength with our expert-led power lifting program.',
+      image: 'https://readdy.ai/api/search-image?query=Power%20lifting%20in%20a%20modern%20gym%2C%20athlete%20lifting%20heavy%20barbell%2C%20dark%20atmosphere%2C%20high-quality%20photography&width=600&height=400&seq=program1',
+    },
+    {
+      id: 2,
+      name: 'HIIT Revolution',
+      description: 'High-intensity interval training to torch calories and boost endurance.',
+      image: 'https://readdy.ai/api/search-image?query=HIIT%20workout%20in%20a%20modern%20gym%2C%20group%20class%2C%20dynamic%20movements%2C%20dark%20atmosphere%2C%20high-quality%20photography&width=600&height=400&seq=program2',
+    },
+    {
+      id: 3,
+      name: 'Yoga Flow',
+      description: 'Enhance flexibility and mental clarity with our yoga sessions.',
+      image: 'https://readdy.ai/api/search-image?query=Yoga%20class%20in%20a%20modern%20studio%2C%20calm%20atmosphere%2C%20athletes%20in%20poses%2C%20high-quality%20photography&width=600&height=400&seq=program3',
+    },
+  ];
+
   return (
-    <Swiper
-      modules={[Navigation, Pagination, Autoplay]}
-      spaceBetween={30}
-      slidesPerView={1}
-      navigation
-      pagination={{ clickable: true }}
-      breakpoints={{
-        640: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
-      }}
-      className="program-slider"
-    >
-      {programs.map((program, index) => (
-        <SwiperSlide key={index}>
-          <Card className="bg-[#222] border-none h-[500px] transform transition-transform hover:scale-105 hover:shadow-xl">
-            <div className="h-64 overflow-hidden">
-              <img
-                src={program.image}
-                alt={program.title}
-                className="w-full h-full object-cover object-top transition-transform hover:scale-110"
-              />
+    <section className="py-20 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Our Signature Programs
+          </h2>
+          <p className="text-xl text-white/70 max-w-3xl mx-auto">
+            Discover our world-class fitness programs designed to help you achieve your goals.
+          </p>
+        </div>
+        <Swiper
+          className="program-slider"
+          options={{
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            navigation: true,
+            pagination: { clickable: true },
+            breakpoints: {
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            },
+          }}
+        >
+          {programs.map((program) => (
+            <div key={program.id} className="swiper-slide">
+              <Card className="p-6">
+                <Card.Header>
+                  <img
+                    src={program.image}
+                    alt={program.name}
+                    className="w-full h-48 object-cover rounded-lg"
+                  />
+                </Card.Header>
+                <Card.Content>
+                  <Card.Title>{program.name}</Card.Title>
+                  <Card.Description>{program.description}</Card.Description>
+                </Card.Content>
+                <Card.Footer>
+                  <Button className="bg-primary hover:bg-primary/80 text-white w-full">
+                    Learn More
+                  </Button>
+                </Card.Footer>
+              </Card>
             </div>
-            <CardHeader>
-              <CardTitle className="text-2xl text-white">{program.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="text-white/70 text-base">{program.description}</CardDescription>
-            </CardContent>
-            <CardFooter>
-              <Button className="bg-[#FF3A3A] hover:bg-[#FF3A3A]/80 text-white !rounded-button whitespace-nowrap cursor-pointer">
-                Learn More
-              </Button>
-            </CardFooter>
-          </Card>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+          ))}
+        </Swiper>
+      </div>
+    </section>
   );
 };
 
-export default ProgramSlider;
+export default ProgramsSection;

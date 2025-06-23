@@ -1,28 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Tabs = ({ tabs, defaultTab, className }) => {
-  const [activeTab, setActiveTab] = useState(defaultTab || tabs[0]?.id);
-
+const Tabs = ({ tabs, activeTab, setActiveTab }) => {
   return (
-    <div className={`w-full ${className}`}>
-      <div className="flex border-b border-[#333]">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`px-6 py-3 text-white text-lg font-medium transition-colors ${
-              activeTab === tab.id
-                ? 'border-b-2 border-[#FF3A3A] text-[#FF3A3A]'
-                : 'hover:text-[#FF3A3A]'
-            }`}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
-      <div className="py-6">
-        {tabs.find((tab) => tab.id === activeTab)?.content}
-      </div>
+    <div className="flex flex-wrap gap-2 mb-6">
+      {tabs.map((tab) => (
+        <button
+          key={tab.id}
+          onClick={() => setActiveTab(tab.id)}
+          className={`px-4 py-2 rounded-button text-white ${
+            activeTab === tab.id ? 'bg-primary' : 'bg-[#333] hover:bg-primary/80'
+          } transition-colors`}
+        >
+          {tab.label}
+        </button>
+      ))}
     </div>
   );
 };
